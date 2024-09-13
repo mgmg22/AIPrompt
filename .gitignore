@@ -8,4 +8,5 @@
 *.pem
 *.xpi
 *.svg
+*.html
 temp/

@@ -1,0 +1,36 @@
+body {
+    font-family: '楷体', 'KaiTi', serif;
+    background-color: #f5f5f5;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+h1 {
+    text-align: center;
+    color: #4a4a4a;
+}
+.word {
+    font-size: 24px;
+    text-align: center;
+    margin: 20px 0;
+}
+.explanation {
+    margin-bottom: 20px;
+}
+.summary {
+    font-style: italic;
+    text-align: center;
+}
+hr {
+    border: none;
+    border-top: 1px solid #4a4a4a;
+    margin: 20px 0;
+}
