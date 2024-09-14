@@ -28,7 +28,7 @@
         design-principles '(干净 简洁 典雅))
 
   (handler-case
-      (let* ((template-path "temp.html")
+      (let* ((template-path "template.html")
              (template-content (read-file-contents template-path))
              (html-content (format nil template-content 
                                    用户输入  ; 标题

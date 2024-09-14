@@ -10,4 +10,4 @@
 *.svg
 temp/
 *.html
-!temp.html
+!template.html
