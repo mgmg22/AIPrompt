@@ -32,7 +32,6 @@
       (let* ((template-path "template.html")
              (template-content (read-file-contents template-path))
              (html-content (format nil template-content 
-                                   用户输入  ; 标题
                                    用户输入  ; h1标题
                                    解答      ; 主要内容
                                    (极简总结 解答)))  ; 一句话总结
