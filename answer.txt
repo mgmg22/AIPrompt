@@ -30,7 +30,11 @@
   (handler-case
       (let* ((template-path "temp.html")
              (template-content (read-file-contents template-path))
-             (html-content (format nil template-content 用户输入 用户输入 解答 (极简总结 解答)))
+             (html-content (format nil template-content 
+                                   用户输入  ; 标题
+                                   用户输入  ; h1标题
+                                   解答      ; 主要内容
+                                   (极简总结 解答)))  ; 一句话总结
              (output-filename (format nil "temp/~a-~8,'0d.html" 用户输入 (random 100000000))))
         (write-file-contents output-filename html-content)
         (format nil "已生成文件：~a" output-filename))
