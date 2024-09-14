@@ -16,14 +16,15 @@
   (let ((解答 (精练表达
                (隐喻 (一针见血 (辛辣讽刺 (抓住本质 用户输入)))))))
     (few-shots (委婉 . "刺向他人时, 决定在剑刃上撒上止痛药。"))
-    (print (HTML-Card 用户输入 解答))))  ;; 打印HTML-Card的返回值
+    (HTML-Card 用户输入 解答)
+    ))
 
 (defun 极简总结 (解答)
   "对解答进行极简总结"
   (format nil "一句话总结：~a" (subseq 解答 0 (min 30 (length 解答)))))
 
 (defun HTML-Card (用户输入 解答)
-  "根目录temp下创建新文件 (用户输入-8位随机数).html"
+  "根目录下创建新文件 (用户输入-8位随机数).html"
   (setq design-rule "合理使用空白,整体排版要有呼吸感"
         design-principles '(干净 简洁 典雅))
 
@@ -36,10 +37,11 @@
                                    解答      ; 主要内容
                                    (极简总结 解答)))  ; 一句话总结
              (output-filename (format nil "temp/~a-~8,'0d.html" 用户输入 (random 100000000))))
+        (ensure-directories-exist "temp/")  ; 确保temp目录存在
         (write-file-contents output-filename html-content)
-        (format nil "已生成文件：~a" output-filename))
+        (format t "已生成文件：~a~%" output-filename))  ; 使用format t 立即输出
     (error (e)
-      (format nil "生成HTML文件时出错：~a" e))))
+      (format t "生成HTML文件时出错：~a~%" e))))  ; 使用format t 立即输出错误
 
 (defun read-file-contents (filepath)
   "读取文件内容"
@@ -59,7 +61,7 @@
   "启动时运行"
   (let (system-role 人生导师)
     (print "说吧, 他们又用哪个问题来忽悠你了?")
-    (force-output)))  ;; 添加：确保输出立即显示
+    ))  ;; 添加：确保输出立即显示
 
 ;; 运行规则
 ;; 1. 启动时必须运行 (start) 函数
