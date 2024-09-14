@@ -24,27 +24,10 @@
         design-principles '(干净 简洁 典雅))
 
   (let ((html-content
-         (format nil "
-<!DOCTYPE html>
-<html lang='zh-CN'>
-<head>
-    <meta charset='UTF-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-    <title>汉语新解</title>
-    <link rel='stylesheet' href='style.css'>
-</head>
-<body>
-    <div class='container'>
-        <h1>汉语新解</h1>
-        <hr>
-        <div class='word'>~a</div>
-        <div class='explanation'>~a</div>
-        <div class='summary'>~a</div>
-        <hr>
-    </div>
-</body>
-</html>
-" 用户输入 解释 (极简总结 解释))))
+         (with-open-file (stream "temp.html")
+           (let ((content (make-string (file-length stream))))))
+             (read-sequence content stream)
+             (format nil content 用户输入 解释 (极简总结 解释)))))))
     (with-open-file (stream (format nil "~a-~8,'0d.html" 用户输入 (random 100000000))
                             :direction :output
                             :if-exists :supersede)
