@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="template.css">
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
 </head>
 <body>
     <div class="bg">
@@ -13,5 +14,17 @@
             <p class="summary">{}</p>
         </div>
     </div>
+    <button id="downloadBtn" class="download-btn">下载截图</button>
+
+    <script>
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            html2canvas(document.querySelector(".bg")).then(canvas => {
+                var link = document.createElement('a');
+                link.download = {}'.png';
+                link.href = canvas.toDataURL();
+                link.click();
+            });
+        });
+    </script>
 </body>
 </html>
