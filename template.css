@@ -6,7 +6,6 @@ body {
     margin: 0 auto;
     padding: 20px;
     background-color: #f5f5f5;
-    text-align: center;
 }
 .bg {
     background: #66ccff;
@@ -20,10 +19,12 @@ body {
 }
 h2 {
     color: #2c3e50;
+    text-align: center;
 }
 .summary {
     font-style: italic;
     color: #7f8c8d;
+    text-align: center;
 }
 
 .download-btn {

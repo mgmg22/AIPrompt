@@ -20,7 +20,7 @@
         document.getElementById('downloadBtn').addEventListener('click', function() {
             html2canvas(document.querySelector(".bg")).then(canvas => {
                 var link = document.createElement('a');
-                link.download = {}'.png';
+                link.download = {};
                 link.href = canvas.toDataURL();
                 link.click();
             });
